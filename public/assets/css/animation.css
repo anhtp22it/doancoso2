@@ -1,0 +1,51 @@
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+@keyframes fl-x {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.animate-fl-x {
+  animation-name: float-bob-x;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes fl-y {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-fl-y {
+  animation-name: float-bob-y;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
