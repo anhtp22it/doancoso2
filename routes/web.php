@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Debugbar::init();
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs'])->name('contactUs');
