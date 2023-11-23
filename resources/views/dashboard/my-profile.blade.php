@@ -72,7 +72,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="text-dark">Email</label>
-                                                <input type="email" class="form-control rounded"
+                                                <input type="email" readonly class="form-control rounded"
                                                     value="{{ $user->email }}" />
                                             </div>
                                         </div>

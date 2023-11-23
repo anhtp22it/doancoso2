@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,7 @@ class HomeController extends Controller
     {
         $allCategories = Category::all();
         $categories = Category::withCount('jobs')->paginate(12);
-        $jobs = Job::where('status', 'Active')->paginate(8);
+        $jobs = Job::where('status', 'Active')->where('user_id', '!=', Auth::id())->paginate(8);
 
 
         return view('home')

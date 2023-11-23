@@ -122,7 +122,7 @@
                                                     </div>
                                                     <button type="button"
                                                         class="btn fw-light shadow-none theme-bg text-white"
-                                                        id="add-requirement" onclick="addRequirement()">Thêm
+                                                        id="add-requirement" onclick="addRequirement()">Add
                                                         Requirement
                                                     </button>
                                                 </div>

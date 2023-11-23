@@ -9,6 +9,15 @@
                 </div>
             </div>
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="dashboard-widg-bar d-block">
             <div class="row">
                 <div class="col-12">
@@ -104,13 +113,13 @@
                                                             <input type="text" name="requirements[]"
                                                                 class="form-control rounded me-2">
                                                             <button class="btn btn-danger py-2 px-3 text-white rounded"
-                                                                onclick="removeRequirement(this)">Xóa
+                                                                onclick="removeRequirement(this)">Delete
                                                             </button>
                                                         </div>
                                                     </div>
                                                     <button type="button"
                                                         class="btn fw-light shadow-none theme-bg text-white"
-                                                        id="add-requirement" onclick="addRequirement()">Thêm
+                                                        id="add-requirement" onclick="addRequirement()">Add
                                                         Requirement
                                                     </button>
                                                 </div>

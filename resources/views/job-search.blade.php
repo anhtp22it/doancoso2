@@ -55,8 +55,8 @@
                                 </a>
                             </div>
                             <div class="text-center pb-5 px-3">
-                                <h6 class="mb-0 lh-1">{{ $job->company }}</h6>
-                                <h5>
+                                <h6 style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis" class="mb-0 lh-1">{{ $job->company }}</h6>
+                                <h5 style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; min-height: 53px">
                                     <a href="{{ url('single-job/' . $job->id) }}" class="text-dark">
                                         {{ $job->title }}
                                     </a>

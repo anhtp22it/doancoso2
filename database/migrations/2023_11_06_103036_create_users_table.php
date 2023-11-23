@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('job_title')->nullable();
             $table->string('phone')->nullable();
-            $table->unsignedBigInteger('type_id')->nullable();
+            $table->unsignedBigInteger('type_id')->default(1);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('experience_id')->nullable();
             $table->string('education')->nullable();

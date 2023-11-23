@@ -106,7 +106,7 @@ function addRequirement() {
     newRequirement.classList.add('requirement', 'd-flex', 'mb-3');
     newRequirement.innerHTML = `
         <input type="text" name="requirements[]" class="form-control rounded me-2">
-        <button class="btn btn-danger py-2 px-3 text-white rounded" onclick="removeRequirement(this)">Xóa</button>
+        <button class="btn btn-danger py-2 px-3 text-white rounded" onclick="removeRequirement(this)">Delete</button>
     `;
     requirementsContainer.appendChild(newRequirement);
 }

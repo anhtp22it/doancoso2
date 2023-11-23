@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="position-relative mb-3 text-center">
-                    <h6 class="mb-0 text-white">Subscribr Now</h6>
+                    <h6 class="mb-0 text-white">Subscribe Now</h6>
                     <h2 class="text-white">Get All New Job Notification</h2>
                 </div>
             </div>

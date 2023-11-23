@@ -11,7 +11,7 @@
                             <span class="px-3 py-1 medium theme-bg-light theme-cl rounded">Get Trending jobs</span>
                         </div>
                         <h1 class="banner_title text-black" style="font-weight: 600">
-                            Explore More Than <br />
+                            Explore More Than <br/>
                             <span class="theme-cl">7840+</span>
                             Jobs
                         </h1>
@@ -21,16 +21,17 @@
                         </p>
                     </div>
                     <form action="{{ url('/job-search') }}" class="bg-white rounded p-1">
+                        @csrf
                         <div class="row gx-0">
                             <div class="col-12 col-md-5">
                                 <div class="form-group mb-0 position-relative">
                                     <input type="text" name="name" id="" class="form-control lg shadow-none"
-                                        style="
+                                           style="
                       padding-left: 32px;
                       border: 0;
                       border-right: 1px solid #ebedf1;
                     "
-                                        placeholder="Job Title, Keyword or Company" />
+                                           placeholder="Job Title, Keyword or Company"/>
                                     <i class="bnc-ico lni lni-search-alt"></i>
                                 </div>
                             </div>
@@ -47,7 +48,7 @@
                             <div class="col-12 col-md-3 col-xl-2">
                                 <div class="form-group mb-0 position-relative d-flex">
                                     <button type="submit"
-                                        class="btn w-100 theme-bg custom-height-lg text-white fs-6 shadow-none">
+                                            class="btn w-100 theme-bg custom-height-lg text-white fs-6 shadow-none">
                                         Find Job
                                     </button>
                                 </div>
@@ -57,14 +58,14 @@
                 </div>
                 <div class="col-12 col-md-5">
                     <div class="position-relative">
-                        <img src="{{ asset('assets/img/bn-2.png') }}" class="img-fluid" alt="" />
+                        <img src="{{ asset('assets/img/bn-2.png') }}" class="img-fluid" alt=""/>
                         <div class="list_crs_img">
                             <img src="{{ asset('assets/img/img-1.png') }}" class="img-fluid elsio animate-fl-y cirl"
-                                alt="" />
+                                 alt=""/>
                             <img src="{{ asset('assets/img/img-3.png') }}" class="img-fluid elsio animate-fl-x arrow"
-                                alt="" />
+                                 alt=""/>
                             <img src="{{ asset('assets/img/img-3.png') }}" class="img-fluid elsio animate-fl-x moon"
-                                alt="" />
+                                 alt=""/>
                         </div>
                     </div>
                 </div>
@@ -147,11 +148,12 @@
                     @foreach ($jobs as $job)
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="position-relative d-block bg-white text-start border rounded">
-                                <div class="rounded bg-white d-flex align-items-center justify-content-between px-3 py-3">
+                                <div
+                                    class="rounded bg-white d-flex align-items-center justify-content-between px-3 py-3">
                                     <div class="rounded bg-white d-flex align-items-center">
                                         <div class="text-center" style="width: 55px; height: 55px">
                                             <img src="{{ $job->getJobPath() }}" class="img-fluid" width="55"
-                                                alt="" />
+                                                 alt=""/>
                                         </div>
                                         <div class="px-2">
                                             <h4 class="mb-0 fs-6 text-black">
@@ -170,19 +172,20 @@
                                     </div>
                                     <div class="text-center">
                                         <form action="{{ route('jobs.apply') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="job_id" type="text"
+                                                   value="{{ $job->id }}">
+                                            <input type="hidden" name="user_id" type="text"
+                                                   value="{{ Auth::user()->id }}">
+                                            <input type="hidden" name="cv" value="{{ Auth::user()->cv }}">
                                             @if ($job->hasApplied(Auth::user()->id))
-                                                @csrf
-                                                <input type="hidden" name="job_id" type="text"
-                                                    value="{{ $job->id }}">
-                                                <input type="hidden" name="user_id" type="text"
-                                                    value="{{ Auth::user()->id }}">
-                                                <input type="hidden" name="cv" value="{{ Auth::user()->cv }}">
-                                                <button class="btn rounded apply-btn" style="min-width: 146px" disabled>
+                                                <button class="btn rounded apply-btn" style="min-width: 161px" disabled>
                                                     Job Applied
                                                     <i class="lni lni-arrow-right-circle ms-1"></i>
                                                 </button>
                                             @else
-                                                <button type="submit" class="btn rounded apply-btn" style="min-width: 146px">
+                                                <button type="submit" class="btn rounded apply-btn"
+                                                        style="min-width: 161px">
                                                     Apply Job
                                                     <i class="lni lni-arrow-right-circle ms-1"></i>
                                                 </button>
@@ -198,7 +201,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-5">
                         <div class="position-relative text-center">
                             <a href="{{ url('/job-search') }}"
-                                class="btn theme-bg rounded text-light hover-theme py-3 px-4 shadow-none">Explore More
+                               class="btn theme-bg rounded text-light hover-theme py-3 px-4 shadow-none">Explore More
                                 Jobs<i class="lni lni-arrow-right-circle ms-2"></i></a>
                         </div>
                     </div>
@@ -225,7 +228,7 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                         <div class="text-center">
                             <a href="{{ url('/job-search?category=' . $category->id) }}"
-                                class="d-block rounded bg-white px-2 py-4">
+                               class="d-block rounded bg-white px-2 py-4">
                                 <div
                                     class="text-center mb-2 mx-auto position-relative d-inline-flex align-items-center justify-content-center p-3 bg-light-success rounded-circle fs-4 theme-cl">
                                     {!! $category->icon !!}
@@ -276,7 +279,7 @@
                                 <div class="rw-header d-flex align-items-center justify-content-start">
                                     <div class="rv-110-thumb position-relative verified-author">
                                         <img src="{{ asset('assets/img/team-3.jpg') }}" class="img-fluid circle"
-                                            width="70" alt="" />
+                                             width="70" alt=""/>
                                     </div>
                                     <div class="rv-110-caption ps-3">
                                         <h4 class="ft-medium fs-md mb-0 lh-1">
@@ -302,7 +305,7 @@
                                 <div class="rw-header d-flex align-items-center justify-content-start">
                                     <div class="rv-110-thumb">
                                         <img src="{{ asset('assets/img/team-4.jpg') }}" class="img-fluid circle"
-                                            width="70" alt="" />
+                                             width="70" alt=""/>
                                     </div>
                                     <div class="rv-110-caption ps-3">
                                         <h4 class="ft-medium fs-md mb-0 lh-1">
@@ -328,7 +331,7 @@
                                 <div class="rw-header d-flex align-items-center justify-content-start">
                                     <div class="rv-110-thumb position-relative verified-author">
                                         <img src="{{ asset('assets/img/team-2.jpg') }}" class="img-fluid circle"
-                                            width="70" alt="" />
+                                             width="70" alt=""/>
                                     </div>
                                     <div class="rv-110-caption ps-3">
                                         <h4 class="ft-medium fs-md mb-0 lh-1">
@@ -354,7 +357,7 @@
                                 <div class="rw-header d-flex align-items-center justify-content-start">
                                     <div class="rv-110-thumb">
                                         <img src="{{ asset('assets/img/team-5.jpg') }}" class="img-fluid circle"
-                                            width="70" alt="" />
+                                             width="70" alt=""/>
                                     </div>
                                     <div class="rv-110-caption ps-3">
                                         <h4 class="ft-medium fs-md mb-0 lh-1">
@@ -380,7 +383,7 @@
                                 <div class="rw-header d-flex align-items-center justify-content-start">
                                     <div class="rv-110-thumb position-relative verified-author">
                                         <img src="{{ asset('assets/img/team-1.jpg') }}" class="img-fluid circle"
-                                            width="70" alt="" />
+                                             width="70" alt=""/>
                                     </div>
                                     <div class="rv-110-caption ps-3">
                                         <h4 class="ft-medium fs-md mb-0 lh-1">

@@ -42,8 +42,8 @@ class ManageJobsController extends Controller
         $job->description = $request->description;
         $job->category_id = $request->category;
         $job->salary = $request->salary;
-        $job->type = $request->type;
-        $job->experience = $request->experience;
+        $job->type_id = $request->type;
+        $job->experience_id = $request->experience;
         $job->deadline = $request->input('dealine');
         $job->country = $request->country;
         $job->city = $request->city;
