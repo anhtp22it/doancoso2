@@ -145,6 +145,15 @@
                     </div>
                 </div>
                 <div class="row align-items-center g-xl-4 g-lg-3 g-md-3 g-3">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     @foreach ($jobs as $job)
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div class="position-relative d-block bg-white text-start border rounded">
@@ -156,16 +165,18 @@
                                                  alt=""/>
                                         </div>
                                         <div class="px-2">
-                                            <h4 class="mb-0 fs-6 text-black">
-                                                {{ $job->title }}
-                                            </h4>
-                                            <div class="d-block mb-2 position-relative">
+                                            <a href="{{ route('single-job', ['id' => $job->id]) }}">
+                                                <h4 class="mb-0 fs-6 text-black">
+                                                    {{ $job->title }}
+                                                </h4>
+                                            </a>
+                                            <div class="d-block mb-2 position-relative" style="width: 255px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">
                                                 <span>
                                                     <i class="lni lni-map-marker"></i>
                                                     {{ $job->city }}, {{ $job->country }}
                                                 </span>
                                                 <span class="ms-2 theme-cl">
-                                                    <i class="lni lni-briefcase me-1"></i> {{ $job->type }}
+                                                    <i class="lni lni-briefcase me-1"></i> {{ $job->jobType->type }}
                                                 </span>
                                             </div>
                                         </div>
@@ -245,7 +256,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 mt-5">
                     <div class="position-relative text-center">
-                        <a href="#" class="browse-category btn rounded shadow-none">
+                        <a href="{{ url('/job-search') }}" class="browse-category btn rounded shadow-none">
                             Browse All Categories
                             <i class="lni lni-arrow-right-circle ms-2"></i>
                         </a>

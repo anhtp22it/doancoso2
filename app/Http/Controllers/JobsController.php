@@ -69,6 +69,10 @@ class JobsController extends Controller
 
     public function applyJob(Request $request)
     {
+        $request->validate([
+            'cv' => 'required',
+        ]);
+
         $applyJob = new AppliedJob();
         $applyJob->job_id = $request->job_id;
         $applyJob->user_id = $request->user_id;
@@ -105,12 +109,12 @@ class JobsController extends Controller
             'salary' => 'required|string',
             'type' => 'required|integer|exists:job_type,id',
             'experience' => 'required|integer|exists:experience,id',
-            'deadline' => 'required|date',
+            'dealine' => 'required|date',
             'country' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'full_address' => 'required|string',
             'applicant_limit' => 'required|integer|min:1',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'job_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         //image
         $originalFileName = $request->file('job_image')->getClientOriginalName();

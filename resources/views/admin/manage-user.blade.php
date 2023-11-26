@@ -65,7 +65,7 @@
                                                 data-fullname="{{ $user->name }}" data-email="{{ $user->email }}"
                                                 data-job_title="{{ $user->job_title }}" data-phone="{{ $user->phone }}"
                                                 data-job_type="{{ $user->jobType->type ?? '' }}"
-                                                data-job_category="{{ $user->jobCategory->name }}"
+                                                data-job_category="{{ $user->jobCategory->name ?? '' }}"
                                                 data-experience="{{ $user->experience->title ?? '' }}"
                                                 data-age="{{ $user->age }}" data-language="{{ $user->language }}"
                                                 data-facebook="{{ $user->facebook }}"

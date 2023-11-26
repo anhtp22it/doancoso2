@@ -73,8 +73,8 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function registered(Request $request, $user)
-    {
-        event(new Registered($user));
-    }
+//    protected function registered(Request $request, $user)
+//    {
+//        event(new Registered($user));
+//    }
 }
