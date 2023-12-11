@@ -2,11 +2,11 @@
     <div class="container">
         <nav class="navbar navbar-expand-xl p-0">
             <a class="navbar-brand" href="{{ '/' }}">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="logo" />
+                <img src="{{ asset('assets/img/logo.png') }}" alt="logo"/>
             </a>
             <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation">
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <i class="lni lni-menu fw-bold fs-4 border-dark"></i>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -37,9 +37,16 @@
                             </li>
                         @endif
                     @else
+                        @if(Auth::user()->role->role == 'ADMIN')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                                    Admin Dashboard
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -47,7 +54,7 @@
                                     Dashboard
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                   onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
