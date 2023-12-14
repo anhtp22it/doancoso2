@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Storage;
 class ManageJobsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     public function index() {
         $jobs = Job::where('user_id', auth()->user()->id)->paginate(6);
         return view('dashboard.manage-jobs')

@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class ExperienceController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified', 'isAdmin']);
+    }
 
     public function index()
     {

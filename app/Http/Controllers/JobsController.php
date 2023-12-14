@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Auth;
 class JobsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
 
     public function search(Request $request)
     {

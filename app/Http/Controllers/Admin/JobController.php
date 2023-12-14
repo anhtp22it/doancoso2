@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class JobController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified', 'isAdmin']);
+    }
 
     public function index() {
         $jobs = Job::where('status', 'Pending')->get();

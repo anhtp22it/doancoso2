@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified', 'isAdmin']);
+    }
     public function index() {
         $users = User::all();
         $roles = Role::getRoles();

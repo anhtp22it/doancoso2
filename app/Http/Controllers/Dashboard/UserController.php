@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
     public function myProfile() {
         $user = User::find(Auth::id());
         $jobTypes = JobType::getJobTypes();

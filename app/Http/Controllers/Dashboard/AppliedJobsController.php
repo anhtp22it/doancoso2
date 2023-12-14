@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 class AppliedJobsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
 
     public function index() {
         $jobs = AppliedJob::where('user_id', Auth::user()->id)->paginate(6);
