@@ -62,19 +62,19 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                @if ($job->job->status == 'Active')
+                                                @if ($job->status == 'Approved')
                                                     <span class="text-info">
-                                                        {{ $job->job->status }}
+                                                        {{ $job->status }}
                                                     </span>
                                                 @endif
-                                                @if ($job->job->status == 'Expired')
+                                                @if ($job->status == 'Trashed')
                                                     <span class="text-danger">
-                                                        {{ $job->job->status }}
+                                                        {{ $job->status }}
                                                     </span>
                                                 @endif
-                                                @if ($job->job->status == 'Pending')
+                                                @if ($job->status == 'Pending')
                                                     <span class="text-warning">
-                                                        {{ $job->job->status }}
+                                                        {{ $job->status }}
                                                     </span>
                                                 @endif
                                             </td>

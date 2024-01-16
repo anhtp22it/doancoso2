@@ -49,7 +49,7 @@ class ManageApplicantController extends Controller
             ->where('user_id', $userId)
             ->first();
 
-        $appliedJob->status = 'Active';
+        $appliedJob->status = 'Approved';
         $appliedJob->save();
 
         return redirect()->back();

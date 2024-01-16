@@ -30,7 +30,7 @@
                     <table class="table bg-white">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">ID</th>
+                                <th scope="col">No.</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Icon</th>
                                 <th scope="col">Action</th>

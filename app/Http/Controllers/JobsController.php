@@ -127,10 +127,13 @@ class JobsController extends Controller
         $uniqueFileName = $fileName . '_' . time() . '.' . $fileExtension;
         $imagePath = $request->file('job_image')->storeAs('job-images', $uniqueFileName, 'public');
 
+        $description = $request->description;
+        $description = nl2br($description);
+
         $job = new Job();
         $job->title = $request->title;
         $job->company = $request->company;
-        $job->description = $request->description;
+        $job->description = $description;
         $job->category_id = $request->category;
         $job->salary = $request->salary;
         $job->type_id = $request->type;

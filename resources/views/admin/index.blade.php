@@ -51,7 +51,7 @@
                     <table class="table bg-white">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">STT</th>
+                                <th scope="col">No.</th>
                                 <th scope="col">Job Title</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Dealine</th>

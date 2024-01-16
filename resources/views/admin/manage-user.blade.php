@@ -110,7 +110,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label class="text-dark">ID</label>
+                                        <label class="text-dark">No.</label>
                                         <input class="form-control rounded" type="number" id="id" name="id"
                                             readonly />
                                     </div>

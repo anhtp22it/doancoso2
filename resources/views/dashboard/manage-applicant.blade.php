@@ -88,9 +88,9 @@
                                             <div class="applicant-status bg-light-danger">
                                                 <small class="text-danger p-2">Trashed</small>
                                             </div>
-                                        @elseif($applicant->status == 'Active')
+                                        @elseif($applicant->status == 'Approved')
                                             <div class="applicant-status bg-light-success">
-                                                <small class="text-success p-2">Active</small>
+                                                <small class="text-success p-2">Approved</small>
                                             </div>
                                         @endif
                                         <div class="applied-date">

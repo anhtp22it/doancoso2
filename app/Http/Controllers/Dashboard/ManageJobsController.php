@@ -19,13 +19,15 @@ class ManageJobsController extends Controller
     {
         $this->middleware(['auth', 'verified']);
     }
-    public function index() {
+    public function index()
+    {
         $jobs = Job::where('user_id', auth()->user()->id)->paginate(6);
         return view('dashboard.manage-jobs')
             ->with('jobs', $jobs);
     }
 
-    public function editUi($id) {
+    public function editUi($id)
+    {
         $jobTypes = JobType::getJobTypes();
         $jobCategories = Category::getCategories();
         $experiences = Experience::getExperiences();
@@ -38,12 +40,16 @@ class ManageJobsController extends Controller
             ->with('experiences', $experiences);
     }
 
-    public function editJob(Request $request) {
+    public function editJob(Request $request)
+    {
         $job = Job::find($request->id);
+
+        $description = $request->description;
+        $description = nl2br($description);
 
         $job->title = $request->title;
         $job->company = $request->company;
-        $job->description = $request->description;
+        $job->description = $description;
         $job->category_id = $request->category;
         $job->salary = $request->salary;
         $job->type_id = $request->type;
@@ -53,9 +59,9 @@ class ManageJobsController extends Controller
         $job->city = $request->city;
         $job->full_address = $request->full_address;
         $job->applicant_limit = $request->applicant_limit;
-//        xoá toàn bộ requirements cũ
+        //        xoá toàn bộ requirements cũ
         $job->requirements()->delete();
-//        thêm requirements mới
+        //        thêm requirements mới
         $requirements = $request->input('requirements');
         foreach ($requirements as $requirement) {
             $jobRequirement = new JobRequirement();
@@ -84,7 +90,8 @@ class ManageJobsController extends Controller
         return redirect()->route('user.manage-jobs')->with('edit', 'Job Has Been Edited');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $job = Job::find($id);
         if (!$job) {
             return redirect()->route('jobs.index')->with('error', 'Công việc không tồn tại.');
